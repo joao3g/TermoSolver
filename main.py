@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re
 
 file = open('words_pt-br_five_letters.txt', 'r')
 words = file.readlines()
@@ -6,7 +7,7 @@ words = file.readlines()
 excluded = []
 contains = {}
 awnser = {0: '', 1: '', 2: '', 3: '', 4: ''}
-
+exclusiveOne = []
 
 def checkExcluded(word):
      for letter in excluded:
@@ -17,12 +18,15 @@ def checkExcluded(word):
 
 def checkContains(word):
      for letter in contains:
-          result = word.find(letter)
-          if(result == -1):
+          if(word.find(letter) == -1):
                return False
-          for i in contains[letter]:
-               if(result == i):
-                    return False
+               
+          occurrences = [m.start() for m in re.finditer(letter, word)]
+          for i in occurrences:
+               for j in contains[letter]:
+                    if(j == i):
+                         return False
+          
      return True
 
 def checkExact(word):
@@ -32,8 +36,14 @@ def checkExact(word):
                     return False
      return True
 
+def checkExclusivelyOne(word):
+     for letter in exclusiveOne:
+          if(word.count(letter) != 1):
+               return False
+     return True
+
 def getInfo():
-     data = raw_input("Insira os dados descobertos (Letra, Posicao) (0 para letra invalida): ")
+     data = input("Insira os dados descobertos (Letra, Posicao) (0 para letra invalida): ")
      if data==0:
           exit()
      dataArray = data.split(" ")
@@ -47,8 +57,9 @@ def getInfo():
 
           # Impede de remover letra já inserida
           for index in awnser:
-               if(awnser[index]==letter or letter in contains):
+               if(awnser[index]==letter and position==0):
                     do = False
+                    exclusiveOne.append(letter)
           
           if(do):
                if(position > 0):
@@ -67,9 +78,7 @@ def mainLoop():
           getInfo()
 
           for word in words:
-               if(checkExcluded(word)):
-                    if(checkContains(word)):
-                         if(checkExact(word)):
-                              print(word)
+               if(checkExcluded(word) and checkContains(word) and checkExact(word) and checkExclusivelyOne(word)):
+                    print(word)
 
 mainLoop()

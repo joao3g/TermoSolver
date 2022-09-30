@@ -21,11 +21,8 @@ def checkContains(word):
      for letter in contains:
           if(word.find(letter) == -1):
                return False
-
-          index = word.find(letter)
                
           occurrences = [m.start() for m in re.finditer(letter, word)]
-
 
           for i in occurrences:
                for j in contains[letter]:
@@ -100,10 +97,17 @@ def getInfo():
 def mainLoop():
 
      while True:
+          response = open('res.txt', 'w')
+          count = 0
+
           getInfo()
 
           for word in words:
                if(checkExcluded(word) and checkContains(word) and checkExact(word) and checkExclusivelyOne(word) and checkTwoMore(word)):
-                    print(word)
-
+                    response.write(word)
+                    count += 1
+                    
+          print("Quantidade de possiveis respostas:", count)
+          response.close()
+          
 mainLoop()

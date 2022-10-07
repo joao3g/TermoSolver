@@ -111,4 +111,5 @@ def mainLoop():
           print("Quantidade de possiveis respostas:", count)
           response.close()
           
-mainLoop()
+if(__name__ == "__main__"):
+     mainLoop()

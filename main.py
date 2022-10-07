@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import re
+import os
 
-file = open('words_pt-br_five_letters.txt', 'r')
+file = open(os.path.abspath("/home/joao/Desktop/TermoSolver/words_pt-br_five_letters.txt"), 'r')
 words = file.readlines()
 
 excluded = []
@@ -106,7 +107,7 @@ def mainLoop():
                if(checkExcluded(word) and checkContains(word) and checkExact(word) and checkExclusivelyOne(word) and checkTwoMore(word)):
                     response.write(word)
                     count += 1
-                    
+
           print("Quantidade de possiveis respostas:", count)
           response.close()
           

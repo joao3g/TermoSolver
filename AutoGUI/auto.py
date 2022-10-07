@@ -4,15 +4,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from time import sleep
+from unidecode import unidecode
 
+from time import sleep
+import random
 
 import sys
 import os
 
 sys.path.append(os.path.abspath("/home/joao/Desktop/TermoSolver"))
 
-from main import getInfo
+import main
 
 class element_has_no_empty_class(object):
     def __init__(self, locator):
@@ -37,13 +39,15 @@ WebDriverWait(driver, 10).until(
 webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
 
 row = 0
-word = 'odeia'
+choice = 'odeia'
 
 while (row < 6):
-    response = []
+    letters = []
+    positions = []
+
     position = 0
 
-    webdriver.ActionChains(driver).send_keys(word).perform()
+    webdriver.ActionChains(driver).send_keys(choice).perform()
     webdriver.ActionChains(driver).send_keys(Keys.ENTER).perform()
 
     while (position < 5):
@@ -65,14 +69,31 @@ while (row < 6):
             color = 'yellow'
 
         if (color == 'green'):
-            response.append("{},{}".format((line.text).lower(), position))
+            letters.append(unidecode((line.text)).lower())
+            positions.append(position)
         elif (color == 'yellow'):
-            response.append("{},{}".format(
-                (line.text).lower(), -abs(position)))
+            letters.append(unidecode((line.text)).lower())
+            positions.append(-abs(position))
         else:
-            response.append("{},{}".format((line.text).lower(), 0))
+            letters.append(unidecode((line.text)).lower())
+            positions.append(0)
 
-    print(*response)
+    print(letters, positions)
+
+    # Starts to use the 'main code'
+
+    main.InsertWord(letters, positions)
+
+    solution = []
+
+    for word in main.words:
+        if (main.checkExcluded(word) and main.checkContains(word) and main.checkExact(word) and main.checkExclusivelyOne(word) and main.checkTwoMore(word)):
+            solution.append(unidecode(word[0:5]))
+
+    print(solution)
+    choice = random.choice(solution)
+    print(choice)
+
     row += 1
 
     sleep(1)

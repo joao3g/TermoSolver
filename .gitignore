@@ -1,4 +1,6 @@
 words.txt
 AutoGUI/geckodriver.log
 __pycache__/
+AutoGUI/Screenshots/
+res.txt
 AutoGUI/__pycache__/

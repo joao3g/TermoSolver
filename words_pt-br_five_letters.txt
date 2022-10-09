@@ -90,7 +90,6 @@ adiai
 adiam
 adiar
 adias
-adida
 adido
 adiei
 adiem
@@ -226,7 +225,6 @@ algas
 Algol
 algoz
 algum
-alhea
 alhos
 aliai
 aliam
@@ -311,8 +309,6 @@ andem
 andes
 andor
 andou
-andre
-Andre
 aneis
 anela
 anele
@@ -451,14 +447,11 @@ arpoa
 arpoe
 arpoo
 arque
-arrea
 arria
 arrie
 arrio
 arroz
 artes
-artur
-Artur
 asila
 asile
 asilo
@@ -622,7 +615,6 @@ balam
 balao
 balas
 balde
-balea
 balem
 bales
 balia
@@ -1034,9 +1026,7 @@ cavio
 cavou
 ceado
 ceais
-ceamo
 ceara
-Ceara
 ceava
 cedam
 cedas
@@ -1668,7 +1658,6 @@ ecoem
 ecoes
 ecoou
 edema
-Edgar
 Edipo
 edita
 edite
@@ -1695,8 +1684,6 @@ elevo
 Elias
 Elisa
 elite
-elixa
-Elixa
 elixe
 elixi
 elixo
@@ -2140,7 +2127,6 @@ frita
 frite
 frito
 frota
-fruam
 fruas
 fruem
 fruia
@@ -2168,7 +2154,6 @@ fujao
 fujas
 fujem
 fujes
-fujia
 fujir
 fujis
 fujiu
@@ -2268,7 +2253,6 @@ gazua
 geada
 geado
 geais
-geamo
 geara
 geava
 geeis
@@ -2485,7 +2469,6 @@ idosa
 idoso
 ienes
 igapo
-ignea
 igneo
 igual
 ilesa
@@ -2965,7 +2948,6 @@ manco
 manda
 mande
 mando
-manea
 manes
 manga
 manha
@@ -2980,7 +2962,6 @@ manta
 mante
 manto
 mapas
-mapea
 marca
 marco
 Marco
@@ -3038,7 +3019,6 @@ melem
 meles
 melou
 melro
-menea
 menir
 menor
 menos
@@ -3074,7 +3054,6 @@ mexeu
 mexia
 miado
 miais
-Miami
 miamo
 miara
 miava
@@ -3335,7 +3314,6 @@ nesta
 neste
 netas
 netos
-Neusa
 nevai
 nevam
 nevar
@@ -3562,7 +3540,6 @@ pague
 paira
 paire
 pairo
-pajea
 palco
 palha
 palma
@@ -3632,7 +3609,6 @@ pavao
 pavio
 pavor
 pazes
-Peano
 pecai
 pecam
 pecar
@@ -4045,7 +4021,6 @@ rapta
 rapte
 rapto
 raras
-rarea
 raros
 rasas
 rasga
@@ -4415,7 +4390,6 @@ sanai
 sanam
 sanar
 sanas
-sanea
 sanei
 sanem
 sanes
@@ -4757,7 +4731,6 @@ tapam
 tapao
 tapar
 tapas
-tapea
 tapei
 tapem
 tapes
@@ -4768,7 +4741,6 @@ tarda
 tarde
 tardo
 tarja
-tatea
 tatua
 tatue
 tatuo
@@ -4841,7 +4813,6 @@ teria
 termo
 terna
 terno
-terra
 Terra
 tesao
 tesas
@@ -4864,7 +4835,6 @@ tiete
 tigre
 timao
 times
-tinam
 tinas
 tinem
 tines

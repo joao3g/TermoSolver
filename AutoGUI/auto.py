@@ -1,3 +1,4 @@
+from exceptiongroup import catch
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -6,7 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from unidecode import unidecode
 
+from datetime import datetime
+
 from time import sleep
+from time import time
+
 import random
 
 import sys
@@ -28,74 +33,115 @@ class element_has_no_empty_class(object):
         else:
             return element
 
+for i in range(int(sys.argv[1])):
+    t0 = time()
+    try:
 
-driver = webdriver.Firefox()
-driver.get("https://term.ooo/")
-
-WebDriverWait(driver, 10).until(
-    EC.title_is("Termo")
-)
-
-webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
-
-row = 0
-choice = 'odeia'
-
-while (row < 6):
-    letters = []
-    positions = []
-
-    position = 0
-
-    webdriver.ActionChains(driver).send_keys(choice).perform()
-    webdriver.ActionChains(driver).send_keys(Keys.ENTER).perform()
-
-    while (position < 5):
-
-        line = driver.execute_script("""return document.querySelector('wc-board').shadowRoot.querySelector("wc-row[termo-row='{}']").
-                                   shadowRoot.querySelector("div[termo-pos='{}']")""".format(row, position))
+        driver = webdriver.Firefox()
+        driver.get("https://term.ooo/")
 
         WebDriverWait(driver, 10).until(
-            element_has_no_empty_class(line)
+            EC.title_is("Termo")
         )
 
-        position += 1
+        webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
 
-        if ("wrong" in line.get_attribute("class")):
-            color = 'black'
-        elif ("right" in line.get_attribute("class")):
-            color = 'green'
-        else:
-            color = 'yellow'
+        main.excluded = []
+        main.contains = {}
+        main.awnser = {0: '', 1: '', 2: '', 3: '', 4: ''}
+        main.exclusiveOne = []
+        main.TwoOrMore = []
 
-        if (color == 'green'):
-            letters.append(unidecode((line.text)).lower())
-            positions.append(position)
-        elif (color == 'yellow'):
-            letters.append(unidecode((line.text)).lower())
-            positions.append(-abs(position))
-        else:
-            letters.append(unidecode((line.text)).lower())
-            positions.append(0)
+        row = 0
+        choice = 'vasco'
 
-    print(letters, positions)
+        print(choice)
 
-    # Starts to use the 'main code'
+        while (row < 6):
+            letters = []
+            positions = []
 
-    main.InsertWord(letters, positions)
+            position = 0
 
-    solution = []
+            webdriver.ActionChains(driver).send_keys(choice).perform()
+            webdriver.ActionChains(driver).send_keys(Keys.ENTER).perform()
 
-    for word in main.words:
-        if (main.checkExcluded(word) and main.checkContains(word) and main.checkExact(word) and main.checkExclusivelyOne(word) and main.checkTwoMore(word)):
-            solution.append(unidecode(word[0:5]))
+            while (position < 5):
 
-    print(solution)
-    choice = random.choice(solution)
-    print(choice)
+                line = driver.execute_script("""return document.querySelector('wc-board').shadowRoot.querySelector("wc-row[termo-row='{}']").
+                                        shadowRoot.querySelector("div[termo-pos='{}']")""".format(row, position))
 
-    row += 1
+                WebDriverWait(driver, 10).until(
+                    element_has_no_empty_class(line)
+                )
 
-    sleep(1)
+                position += 1
 
-driver.close()
+                if ("wrong" in line.get_attribute("class")):
+                    color = 'black'
+                elif ("right" in line.get_attribute("class")):
+                    color = 'green'
+                else:
+                    color = 'yellow'
+
+                if (color == 'green'):
+                    letters.append(unidecode((line.text)).lower())
+                    positions.append(position)
+                elif (color == 'yellow'):
+                    letters.append(unidecode((line.text)).lower())
+                    positions.append(-abs(position))
+                else:
+                    letters.append(unidecode((line.text)).lower())
+                    positions.append(0)
+
+            # Check if the awnser is correctly
+            positives = 0
+
+            for i in positions:
+                if(i>0): positives += 1
+            
+            if(positives == len(positions)): break
+                
+            # Starts to use the 'main code'
+
+            main.InsertWord(letters, positions)
+
+            solution = []
+
+            for word in main.words:
+                if (main.checkExcluded(word) and main.checkContains(word) and main.checkExact(word) and main.checkExclusivelyOne(word) and main.checkTwoMore(word)):
+                    solution.append(unidecode(word[0:5]))
+
+            print("Quantidade de possiveis respostas: {}\n".format(len(solution)))
+            choice = random.choice(solution)
+            print(choice)
+
+            row += 1
+
+            sleep(1)
+
+        #sleep(2)
+
+        now = datetime.now()
+
+        current_time = now.strftime("%H-%M-%S")
+
+        if(row == 6): driver.save_screenshot('Screenshots/Error/{}.png'.format(current_time))
+        else: driver.save_screenshot('Screenshots/Success/{}.png'.format(current_time))
+
+        driver.close()
+
+        print(time()-t0)
+
+
+    except:
+        now = datetime.now()
+
+        current_time = now.strftime("%H-%M-%S")
+
+        driver.save_screenshot('Screenshots/Failure/{}.png'.format(current_time))
+        driver.close()
+
+        print(time()-t0)
+        
+

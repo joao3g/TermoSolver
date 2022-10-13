@@ -527,7 +527,6 @@ atuas
 atuei
 atuem
 atues
-atuns
 atuou
 atura
 ature
@@ -578,7 +577,6 @@ azaro
 azeda
 azede
 azedo
-azias
 azimo
 azoto
 azuis
@@ -719,7 +717,6 @@ bicos
 bicou
 biela
 Bielo
-bigas
 bilis
 bingo
 bique
@@ -1324,6 +1321,7 @@ cozer
 cozes
 cozeu
 cozia
+crase
 crava
 crave
 cravo
@@ -1617,7 +1615,6 @@ drene
 dreno
 droga
 drogo
-duais
 dubia
 dubio
 dubla
@@ -1681,8 +1678,6 @@ elejo
 eleva
 eleve
 elevo
-Elias
-Elisa
 elite
 elixe
 elixi
@@ -1691,7 +1686,6 @@ elmos
 emana
 emane
 emano
-Emaus
 emita
 emite
 emiti
@@ -1763,7 +1757,6 @@ escoa
 escoe
 escol
 escoo
-esima
 esimo
 Esopo
 espia
@@ -2127,7 +2120,6 @@ frita
 frite
 frito
 frota
-fruas
 fruem
 fruia
 fruir
@@ -2423,7 +2415,6 @@ haver
 havia
 Hegel
 helio
-heras
 herda
 herde
 herdo
@@ -2601,7 +2592,6 @@ jorra
 jorre
 jorro
 jovem
-jubas
 judas
 judeu
 judia
@@ -3917,7 +3907,6 @@ pulou
 pulsa
 pulse
 pulso
-pumas
 punam
 punas
 punem
@@ -4159,7 +4148,6 @@ rifes
 rifle
 rifou
 rigor
-rijas
 rijos
 rimai
 rimam
@@ -4505,22 +4493,17 @@ silvo
 simao
 simio
 sinal
-sinas
 sinos
 sinta
 sinto
-siria
-Siria
 sirio
 siris
 sirva
 sirvo
-sirza
 sirzo
 sisma
 sisme
 sismo
-sitas
 sitia
 sitie
 sitio
@@ -4823,7 +4806,6 @@ teste
 testo
 tetas
 tetos
-Texas
 texto
 tiara
 tibia
@@ -4835,7 +4817,6 @@ tiete
 tigre
 timao
 times
-tinas
 tinem
 tines
 tinge
@@ -5085,7 +5066,6 @@ urina
 urine
 urino
 urjam
-urjas
 urnas
 urrai
 urram
@@ -5123,7 +5103,6 @@ vagai
 vagam
 vagao
 vagar
-vagas
 vagem
 vagia
 vagir

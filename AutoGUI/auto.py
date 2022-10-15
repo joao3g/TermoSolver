@@ -1,4 +1,6 @@
-from exceptiongroup import catch
+#!/usr/bin/python3
+# -*- coding: iso-8859-15 -*-
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -125,9 +127,20 @@ for i in range(int(sys.argv[1])):
         now = datetime.now()
 
         current_time = now.strftime("%H-%M-%S")
+        folder_name = now.strftime("%d-%m")
 
-        if(row == 6): driver.save_screenshot('Screenshots/Error/{}.png'.format(current_time))
-        else: driver.save_screenshot('Screenshots/Success/{}.png'.format(current_time))
+        
+        if(row == 6): 
+            try:
+                os.mkdir("Screenshots/Error/{}".format(folder_name))
+            finally:
+                driver.save_screenshot('Screenshots/Error/{}/{}.png'.format(folder_name, current_time))
+
+        else: 
+            try:
+                os.mkdir("Screenshots/Success/{}".format(folder_name))
+            finally:
+                driver.save_screenshot('Screenshots/Success/{}/{}.png'.format(folder_name, current_time))
 
         driver.close()
 
@@ -138,8 +151,13 @@ for i in range(int(sys.argv[1])):
         now = datetime.now()
 
         current_time = now.strftime("%H-%M-%S")
+        folder_name = now.strftime("%d-%m")
 
-        driver.save_screenshot('Screenshots/Failure/{}.png'.format(current_time))
+        try:
+            os.mkdir("Screenshots/Failure/{}".format(folder_name))
+        finally:
+            driver.save_screenshot('Screenshots/Failure/{}/{}.png'.format(folder_name, current_time))
+
         driver.close()
 
         print(time()-t0)

@@ -19,7 +19,9 @@ import random
 import sys
 import os
 
-sys.path.append(os.path.abspath("/home/joao/Desktop/TermoSolver"))
+current_dir = os.getcwd()
+
+sys.path.append(os.path.abspath(current_dir))
 
 import main
 
@@ -132,15 +134,15 @@ for i in range(int(sys.argv[1])):
         
         if(row == 6): 
             try:
-                os.mkdir("Screenshots/Error/{}".format(folder_name))
+                os.mkdir(current_dir + "/Screenshots/Error/{}".format(folder_name))
             finally:
-                driver.save_screenshot('Screenshots/Error/{}/{}.png'.format(folder_name, current_time))
+                driver.save_screenshot(current_dir + '/Screenshots/Error/{}/{}.png'.format(folder_name, current_time))
 
         else: 
             try:
-                os.mkdir("Screenshots/Success/{}".format(folder_name))
+                os.mkdir(current_dir + "/Screenshots/Success/{}".format(folder_name))
             finally:
-                driver.save_screenshot('Screenshots/Success/{}/{}.png'.format(folder_name, current_time))
+                driver.save_screenshot(current_dir + '/Screenshots/Success/{}/{}.png'.format(folder_name, current_time))
 
         driver.close()
 
@@ -154,9 +156,9 @@ for i in range(int(sys.argv[1])):
         folder_name = now.strftime("%d-%m")
 
         try:
-            os.mkdir("Screenshots/Failure/{}".format(folder_name))
+            os.mkdir(current_dir + "/Screenshots/Failure/{}".format(folder_name))
         finally:
-            driver.save_screenshot('Screenshots/Failure/{}/{}.png'.format(folder_name, current_time))
+            driver.save_screenshot(current_dir + '/Screenshots/Failure/{}/{}.png'.format(folder_name, current_time))
 
         driver.close()
 

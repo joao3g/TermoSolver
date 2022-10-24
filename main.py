@@ -3,7 +3,7 @@ from array import array
 import re
 import os
 
-file = open(os.path.abspath("/home/joao/Desktop/TermoSolver/words_pt-br_five_letters.txt"), 'r')
+file = open(os.path.abspath("./words_pt-br_five_letters.txt"), 'r')
 words = file.readlines()
 
 excluded = []

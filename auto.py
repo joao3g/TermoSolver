@@ -135,12 +135,16 @@ for i in range(int(sys.argv[1])):
         if(row == 6): 
             try:
                 os.mkdir(current_dir + "/Screenshots/Error/{}".format(folder_name))
+            except:
+                pass
             finally:
                 driver.save_screenshot(current_dir + '/Screenshots/Error/{}/{}.png'.format(folder_name, current_time))
 
         else: 
             try:
                 os.mkdir(current_dir + "/Screenshots/Success/{}".format(folder_name))
+            except:
+                pass
             finally:
                 driver.save_screenshot(current_dir + '/Screenshots/Success/{}/{}.png'.format(folder_name, current_time))
 
@@ -157,6 +161,8 @@ for i in range(int(sys.argv[1])):
 
         try:
             os.mkdir(current_dir + "/Screenshots/Failure/{}".format(folder_name))
+        except:
+            pass
         finally:
             driver.save_screenshot(current_dir + '/Screenshots/Failure/{}/{}.png'.format(folder_name, current_time))
 
